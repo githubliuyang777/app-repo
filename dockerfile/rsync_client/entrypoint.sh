@@ -22,8 +22,8 @@ while true; do
    echo "Starting to sync repos @ $(date)"
    # shellcheck disable=SC2039
    if [[ -z "${ADDITIONAL_PARAMETERS}" ]]; then
-      timeout ${RSYNC_INTERNAL} rsync -av --partial --progress  "${SYNC_HOST}"  "${TARGET_DIR}"
+      timeout ${RSYNC_INTERNAL} rsync -av --partial --progress --block-size=131072 "${SYNC_HOST}"  "${TARGET_DIR}"
    else
-      timeout ${RSYNC_INTERNAL} rsync -av --partial --progress ${ADDITIONAL_PARAMETERS}  "${SYNC_HOST}"  "${TARGET_DIR}"
+      timeout ${RSYNC_INTERNAL} rsync -av --partial --progress --block-size=131072 ${ADDITIONAL_PARAMETERS}  "${SYNC_HOST}"  "${TARGET_DIR}"
    fi
 done
