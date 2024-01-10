@@ -26,4 +26,6 @@ while true; do
    else
       timeout ${RSYNC_INTERNAL} rsync -av --partial --progress --block-size=131072 ${ADDITIONAL_PARAMETERS}  "${SYNC_HOST}"  "${TARGET_DIR}"
    fi
+   # delay 120s after finish rsync
+   sleep 120
 done
