@@ -11,8 +11,6 @@ RUN chown 1000:1000 /usr/local/bin/entrypoint.sh && \
     chown 1000:1000 /usr/local/bin/tini && \
     chmod +x /usr/local/bin/entrypoint.sh
 
-USER rsync
-
 WORKDIR /usr/local/bin/
 ENV PATH=$PATH:/usr/local/bin/
 CMD ["entrypoint.sh"]
